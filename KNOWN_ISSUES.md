@@ -2,18 +2,23 @@
 ## Event Store
 
 ### General
-- Do not create events with dictionary properties having recursive value type, e.g.  
+- Do not create events containing dictionary properties with recursive value type (applies to transitive relationships as well), e.g.  
 ```csharp
-class Man 
+class ObjectValidatedEvent 
 {
-  public IDictionary<string, Man> Brothers { get; set; }
+  public IList<ErrorInfo> Errors { get; set }
+}
+
+class ErrorInfo
+{
+  public IDictionary<string, IList<ErrorInfo>> PropertyErrors { get; set; }
 }
 ```
-This will cause an exception during object deserialization. You can workaround it by using a common base type instead:
+This will cause an exception during event deserialization. You can workaround it by using a common base type instead:
 ```csharp
-class Man : Person
+class ErrorInfo : ErrorInfoBase
 {
-  public IDictionary<string, Person> Brothers { get; set; }
+  public IDictionary<string, IList<ErrorInfoBase>> PropertyErrors { get; set; }
 }
 ```
 
