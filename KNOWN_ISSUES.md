@@ -23,14 +23,14 @@ class Man : Person
 - Do not use `DateTime` instances with other than `DateTime.Utc` date time kind in compound keys - it is checked on all places except compound keys by BTDB automatically
 
 ### Transactions
-- IObjectDbTransaction.Singleton() method will throw `NullReferenceException` if the ObjectDb transaction was started without anactive KeyValueDb transaction. Full stack trace:
+- `IObjectDbTransaction.Singleton()` method will throw `NullReferenceException` if the ObjectDb transaction was started without an active KeyValueDb transaction. Full stack trace:
 ```
 System.NullReferenceException : Object reference not set to an instance of an object.
    at BTDB.KVDBLayer.ExtensionMethods.SetKeyPrefix(IKeyValueDBTransaction transaction, Byte[] prefix)
    at BTDB.ODBLayer.ObjectDBTransaction.Singleton(Type type)
 ```
 
-*To enable debugging against BTDB sources, setup .pdb locations as described in http://www.symbolsource.org/Public/Home/VisualStudio*
+To enable debugging against BTDB sources, setup .pdb locations as described in http://www.symbolsource.org/Public/Home/VisualStudio. Please note that the PDBs may be unusable under newer version of Visual Studio / .net as the used format of the PDBs was deprecated.
 
 *TODO Convert to Wiki page in the end?*
 
