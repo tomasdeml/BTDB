@@ -23,6 +23,9 @@ class ErrorInfo : ErrorInfoBase
 ```
 
 ## Object DB
+### General
+- Properties with type `ISet<T>` / `HashSet<T>` are not supported
+
 ### Dictionaries
 #### Keys
 - Do not use `string`, `sbyte`, `byte[]` in compound keys
