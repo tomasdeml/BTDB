@@ -1,8 +1,8 @@
 # Known Issues
-## Object DB
+## Event Store
 
 ### General
-- Do not create dictionary properties with recursive value types, e.g.  
+- Do not create events with dictionary properties having recursive value type, e.g.  
 ```csharp
 class Man 
 {
@@ -17,6 +17,7 @@ class Man : Person
 }
 ```
 
+## Object DB
 ### Dictionaries
 #### Keys
 - Do not use `string`, `sbyte`, `byte[]` in compound keys
