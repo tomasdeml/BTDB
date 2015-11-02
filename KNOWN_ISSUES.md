@@ -19,7 +19,7 @@ class Man : Person
 
 ### Dictionaries
 #### Keys
-- Do not use string, sbyte, byte[] in compound keys
+- Do not use `string`, `sbyte`, `byte[]` in compound keys
 - Do not use `DateTime` instances with other than `DateTime.Utc` date time kind in compound keys - it is checked on all places except compound keys by BTDB automatically
 
 ### Transactions
@@ -29,6 +29,8 @@ System.NullReferenceException : Object reference not set to an instance of an ob
    at BTDB.KVDBLayer.ExtensionMethods.SetKeyPrefix(IKeyValueDBTransaction transaction, Byte[] prefix)
    at BTDB.ODBLayer.ObjectDBTransaction.Singleton(Type type)
 ```
+
+*To enable debugging against BTDB sources, setup .pdb locations as described in http://www.symbolsource.org/Public/Home/VisualStudio*
 
 *TODO Convert to Wiki page in the end?*
 
