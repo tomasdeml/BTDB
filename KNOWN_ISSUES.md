@@ -2,7 +2,7 @@
 ## Event Store
 
 ### General
-- Do not create events containing dictionary properties with recursive value type (applies to transitive relationships as well), e.g.  
+- [Issue Bobris/BTDB#19] Do not create events containing dictionary properties with recursive value type (applies to transitive relationships as well), e.g.  
 ```csharp
 class ObjectValidatedEvent 
 {
